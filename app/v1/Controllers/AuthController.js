@@ -11,8 +11,8 @@ class AuthController {
   static async register(req, res, next) {
     try {
       await UserController.store(req, res, next);
-    } catch (error) {
-      next(error);
+    } catch (e) {
+      next(e);
     }
   }
 
@@ -23,8 +23,8 @@ class AuthController {
       const refreshToken = await AuthController.refreshToken(user);
       await AuthModel.findByIdAndUpdate(user._id.toString(), { refreshToken }, { runValidators: true });
       res.json({ accessToken, refreshToken });
-    } catch (error) {
-      next(error);
+    } catch (e) {
+      next(e);
     }
   }
 
@@ -35,8 +35,8 @@ class AuthController {
       if (!auth || !auth.refreshToken === refreshToken) throw boom.unauthorized();
       const accessToken = await AuthController.accessToken(auth);
       res.json({ accessToken });
-    } catch (error) {
-      next(error);
+    } catch (e) {
+      next(e);
     }
   }
 

@@ -15,6 +15,16 @@ const config = {
     PORT: env.MONGODB_PORT || '',
     DB: env.MONGODB_DB || '',
   },
+  geo: {
+    google: {
+      URL: env.API_GOOGLE_URL || '',
+      KEY: env.API_GOOGLE_KEY || '',
+    },
+    tomtom: {
+      URL: env.API_TOMTOM_UP || '',
+      KEY: env.API_TOMTOM_KEY || '',
+    },
+  },
 };
 
 module.exports = { config };
