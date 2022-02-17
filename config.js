@@ -3,9 +3,10 @@ const config = {
   app: {
     NAME: env.APP_NAME || 'API',
     ENV: env.APP_ENV || 'local',
-    KEY: env.APP_KEY || '',
     URL: env.APP_URL || 'http://localhost',
     PORT: env.APP_PORT || '3000',
+    ACCESS_TOKEN_SECRET: env.ACCESS_TOKEN_SECRET || '',
+    REFRESH_TOKEN_SECRET: env.REFRESH_TOKEN_SECRET || '',
   },
   db: {
     USER: env.MONGODB_USER || '',

@@ -6,7 +6,6 @@ function logErrors(err, req, res, next) {
 }
 
 function dbErrorHandler(err, req, res, next) {
-  console.log(Object.getPrototypeOf(err));
   if (err instanceof ValidationError) {
     res.status(409).json({
       statusCode: 409,
@@ -25,10 +24,8 @@ function boomErrorHandler(err, req, res, next) {
 }
 
 function errorHandler(err, req, res, next) {
-  console.log(err.stack);
   res.status(500).json({
-    message: err.message,
-    stack: err.stack,
+    message: 'Internal server error',
   });
 }
 

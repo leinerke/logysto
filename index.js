@@ -1,6 +1,7 @@
 const { config } = require('./config');
 const express = require('express');
 const cors = require('cors');
+const passport = require('passport');
 const { routerV1 } = require('./routes/v1');
 const db = require('./db');
 const { error } = require('./middleware/error');
@@ -11,8 +12,9 @@ const dbUrl = `mongodb://${config.db.USER}:${config.db.PASS}@${config.db.HOST}/$
 /**
  * Middlewares
  */
-app.use(cors());
 app.use(express.json());
+app.use(cors());
+require('./utils/auth');
 
 /**
  * Routes
