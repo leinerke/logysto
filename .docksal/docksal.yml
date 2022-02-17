@@ -8,8 +8,6 @@ services:
       - io.docksal.virtual-port=3000
     ports:
       - "3000:3000"
-    # Using nodemon for live reload
-    # command: [ "bash", "-lc", "nodemon server.js" ]
   mongodb:
     image: mongo
     restart: always
