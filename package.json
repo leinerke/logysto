@@ -1,0 +1,34 @@
+{
+  "name": "logysto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leinerke/logysto.git"
+  },
+  "keywords": [
+    "logysto"
+  ],
+  "author": "Leinerke Suarez <leinerke2000@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leinerke/logysto/issues"
+  },
+  "homepage": "https://github.com/leinerke/logysto#readme",
+  "dependencies": {
+    "@hapi/boom": "^9.1.4",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.2",
+    "mongoose-paginate-v2": "^1.6.2",
+    "passport": "^0.5.2"
+  }
+}

@@ -1,0 +1,26 @@
+version: "2.1"
+services:
+  cli:
+    # Extend the stock cli image (see .docksal/services/cli/Dockerfile)
+    image: ${COMPOSE_PROJECT_NAME_SAFE}/cli
+    build: services/cli
+    labels:
+      - io.docksal.virtual-port=3000
+    ports:
+      - "3000:3000"
+    # Using nodemon for live reload
+    # command: [ "bash", "-lc", "nodemon server.js" ]
+  mongodb:
+    image: mongo
+    restart: always
+    ports:
+      - ${MONGO_PORT_MAPPING:-27017}
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGODB_USER: ${MONGODB_USER}
+      MONGODB_PASS: ${MONGODB_PASS}
+      MONGODB_DB: ${MONGODB_DB}
+    volumes:
+      - ./services/mongo/init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh:ro
+    command: [ "--auth" ]
